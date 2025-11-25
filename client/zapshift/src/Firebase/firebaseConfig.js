@@ -8,19 +8,17 @@ import { getAuth } from "firebase/auth";
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyC2iqpbpxwlOiwUuEGh-Ni00QSxPlbslwE",
-  authDomain: "zapshift-5b2aa.firebaseapp.com",
-  projectId: "zapshift-5b2aa",
-  storageBucket: "zapshift-5b2aa.firebasestorage.app",
-  messagingSenderId: "774315840092",
-  appId: "1:774315840092:web:0f98755578444f54554c99",
-  measurementId: "G-96W9QSETM7"
+  apiKey: import.meta.env.VITE_FIREBASE_apiKey,
+  authDomain: import.meta.env.VITE_FIREBASE_authDomain,
+  projectId: import.meta.env.VITE_FIREBASE_projectId,
+  storageBucket: import.meta.env.VITE_FIREBASE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_messagingSenderId,
+  appId: import.meta.env.VITE_FIREBASE_appId,
+  measurementId: import.meta.env.VITE_FIREBASE_measurementId,
+  
+  
 };
 
-// এখানে চেক করো
-console.log("Firebase Config Loaded:", firebaseConfig);
-console.log("API Key আছে কি?", !!firebaseConfig.apiKey);
-console.log("API Key এর প্রথম ১০ অক্ষর:", firebaseConfig.apiKey?.substring(0, 10) + "...");
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
@@ -29,3 +27,7 @@ const analytics = getAnalytics(app);
 
 // Initialize Firebase Authentication and get a reference to the service
 const auth = getAuth(app);
+
+
+
+export { app, auth, analytics };
