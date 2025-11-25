@@ -6,9 +6,9 @@ const Footer = () => {
       {/* <!-- =================================== -->
   <!-- 10. FOOTER -->
   <!-- =================================== --> */}
-      <footer class="footer p-10 bg-neutral text-neutral-content">
-        <div>
-          <span class="footer-title text-success text-2xl font-bold">
+      <footer className="footer p-10 bg-[#2b3440] text-neutral-content grid grid-cols-1 md:grid-cols-5">
+        <div className="col-span-2">
+          <span className="footer-title text-success text-2xl font-bold">
             ZapShift
           </span>
           <p>
@@ -17,40 +17,40 @@ const Footer = () => {
           </p>
         </div>
         <div>
-          <span class="footer-title">Services</span>
-          <a class="link link-hover">Express Delivery</a>
-          <a class="link link-hover">Nationwide Delivery</a>
-          <a class="link link-hover">Corporate Logistics</a>
-          <a class="link link-hover">Parcel Return</a>
+          <span className="footer-title">Services</span>
+          <a className="link link-hover">Express Delivery</a>
+          <a className="link link-hover">Nationwide Delivery</a>
+          <a className="link link-hover">Corporate Logistics</a>
+          <a className="link link-hover">Parcel Return</a>
         </div>
         <div>
-          <span class="footer-title">Company</span>
-          <a class="link link-hover">About us</a>
-          <a class="link link-hover">Contact</a>
-          <a class="link link-hover">Blog</a>
-          <a class="link link-hover">Careers</a>
+          <span className="footer-title">Company</span>
+          <a className="link link-hover">About us</a>
+          <a className="link link-hover">Contact</a>
+          <a className="link link-hover">Blog</a>
+          <a className="link link-hover">Careers</a>
         </div>
         <div>
-          <span class="footer-title">Legal</span>
-          <a class="link link-hover">Terms of use</a>
-          <a class="link link-hover">Privacy policy</a>
+          <span className="footer-title">Legal</span>
+          <a className="link link-hover">Terms of use</a>
+          <a className="link link-hover">Privacy policy</a>
         </div>
       </footer>
-      <div class="bg-black text-white py-6 text-center">
-        <div class="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
+      <div className="bg-black text-white py-6 text-center">
+        <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
           <p>© 2025 ZapShift. All rights reserved.</p>
-          <div class="flex gap-4 mt-4 md:mt-0">
-            <a href="#" class="btn btn-circle btn-ghost">
-              <i class="fab fa-facebook"></i>
+          <div className="flex gap-4 mt-4 md:mt-0">
+            <a href="#" className="btn btn-circle btn-ghost">
+              <i className="fab fa-facebook"></i>
             </a>
-            <a href="#" class="btn btn-circle btn-ghost">
-              <i class="fab fa-twitter"></i>
+            <a href="#" className="btn btn-circle btn-ghost">
+              <i className="fab fa-twitter"></i>
             </a>
-            <a href="#" class="btn btn-circle btn-ghost">
-              <i class="fab fa-instagram"></i>
+            <a href="#" className="btn btn-circle btn-ghost">
+              <i className="fab fa-instagram"></i>
             </a>
-            <a href="#" class="btn btn-circle btn-ghost">
-              <i class="fab fa-youtube"></i>
+            <a href="#" className="btn btn-circle btn-ghost">
+              <i className="fab fa-youtube"></i>
             </a>
           </div>
         </div>
