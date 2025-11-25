@@ -1,4 +1,5 @@
 import React from 'react';
+import bigDeliveryman from '../assets/big-deliveryman.png'
 
 const Hero = () => {
     return (
@@ -20,7 +21,7 @@ const Hero = () => {
         </div>
       </div>
       <div className="lg:w-1/2">
-        <img src="https://images.unsplash.com/photo-1626645733579-2eb242550e3c?w=800&q=80" alt="Delivery illustration" className="w-full rounded-xl shadow-2xl"/>
+        <img src={bigDeliveryman} alt="Delivery illustration" className="w-full h-96 rounded-xl shadow-2xl"/>
       </div>
     </div>
   </section>  
