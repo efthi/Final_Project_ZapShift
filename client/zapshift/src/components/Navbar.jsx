@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router";
 
 const Navbar = () => {
   return (
@@ -35,8 +36,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex-none gap-2">
-          <button className="btn btn-ghost">Sign In</button>
-          <button className="btn btn-success text-white">Sign Up</button>
+          <NavLink to="/login" className="btn btn-ghost">Sign In</NavLink>
+          <NavLink to="/register" className="btn btn-success text-white">Sign Up</NavLink>
           <div className="dropdown dropdown-end lg:hidden">
             <label tabIndex="0" className="btn btn-ghost btn-circle">
               <svg
