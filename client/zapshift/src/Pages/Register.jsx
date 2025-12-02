@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../hooks/useAuth";
+import axios from 'axios';
 import { toast, ToastContainer } from "react-toastify";
 import { Link } from "react-router";
 import SocialLogin from "../Auth/SocialLogin/SocialLogin";
@@ -13,13 +14,35 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const {createUser} = useAuth();
+  const {createUser, updateProfile} = useAuth();
 
   const handleRegister = (data) => {
-    console.log("Register Clicked!", data);
+    console.log(data.profilepic[0]);
+    const profileImg = data.profilepic[0];
+
     createUser(data.email, data.password)
       .then(result=> {
         console.log(result.user);
+
+        //store image and get photoURL
+        const formData = new FormData();
+        formData.append('image', profileImg);
+        const imageAPIURL = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_host_key}`
+        axios.post(imageAPIURL, formData)
+          .then(res => {
+            console.log('after image upload', res.data.data.url);
+
+            const userProfile = {
+              displayName : data.name,
+              photoURL : res.data.data.url
+            }
+            updateProfile (userProfile)
+              .then(()=> {
+                console.log('Profile Ready!');
+                
+              })
+          })
+
         toast.success('Registration Successful!')
       })
       .catch(error => {

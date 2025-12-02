@@ -3,17 +3,24 @@ import { NavLink } from "react-router";
 import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
-  
-  const {user, logOut} = useAuth();
-  const handleLogout = () =>{
-        logOut()
-  }
-  const login = <>
-                <NavLink to="/login" className="btn btn-ghost">Sign In</NavLink>
-                <NavLink to="/register" className="btn btn-success text-white">Sign Up</NavLink></>;
-  const logout = <>
-                <button onClick={handleLogout} className="btn btn-warning text-white">Logout</button></>;
-                
+  const { user, logOut } = useAuth();
+  const handleLogout = () => {
+    logOut();
+  };
+  const login = (
+    <>
+      <NavLink to="/login" className="btn btn-success">
+        Sign In
+      </NavLink>
+    </>
+  );
+  const logout = (
+    <>
+      <button onClick={handleLogout} className="btn btn-warning text-white">
+        Logout
+      </button>
+    </>
+  );
 
   return (
     <>
@@ -41,17 +48,17 @@ const Navbar = () => {
               <a href="#pricing">Pricing</a>
             </li>
             <li>
-              <a href="#blog">Blog</a>
-            </li>
-            <li>
               <a href="#contact">Contact</a>
             </li>
           </ul>
         </div>
         <div className="flex-none gap-2">
-          {
-            user ? logout : login
-          }
+          <span className='flex gap-3'>
+            <NavLink to="be-a-rider" className="btn btn-secondary rounded-4xl">
+            Be a Rider
+          </NavLink>
+          {user ? logout : login}
+          </span>
           <div className="dropdown dropdown-end lg:hidden">
             <label tabIndex="0" className="btn btn-ghost btn-circle">
               <svg
