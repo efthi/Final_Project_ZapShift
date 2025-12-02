@@ -1,5 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
+import useAuth from "../hooks/useAuth";
+import { toast, ToastContainer } from "react-toastify";
+import { Link } from "react-router";
+import SocialLogin from "../Auth/SocialLogin/SocialLogin";
+
 
 const Register = () => {
   const {
@@ -7,8 +12,20 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  const {createUser} = useAuth();
+
   const handleRegister = (data) => {
     console.log("Register Clicked!", data);
+    createUser(data.email, data.password)
+      .then(result=> {
+        console.log(result.user);
+        toast.success('Registration Successful!')
+      })
+      .catch(error => {
+        console.log(error);
+        toast.error(error);
+      })
   };
   return (
     <>
@@ -19,6 +36,7 @@ const Register = () => {
               Register
             </h2>
             <form onSubmit={handleSubmit(handleRegister)}>
+              <fieldset>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Name</span>
@@ -90,14 +108,16 @@ const Register = () => {
               <div className="form-control mt-6">
                 <button className="btn btn-success w-full">Register</button>
               </div>
+              <p className="mt-5 p-3">Already registered! Please  
+                <Link to="/login" className="link link-primary font-bold p-1">Login</Link> </p>
+              </fieldset>
             </form>
             <div className="divider">OR</div>
-            <button className="btn btn-outline w-full">
-              Continue with Google
-            </button>
+           <SocialLogin></SocialLogin>
           </div>
         </div>
       </div>
+      <ToastContainer></ToastContainer>
     </>
   );
 };
