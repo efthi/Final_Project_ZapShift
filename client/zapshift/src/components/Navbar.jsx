@@ -10,7 +10,11 @@ const Navbar = () => {
   const login = (
     <>
       <NavLink to="/login" className="btn btn-success">
-       {auLoading ? <span className="loading loading-spinner"></span> : ' Sign In'}
+        {auLoading ? (
+          <span className="loading loading-spinner"></span>
+        ) : (
+          " Sign In"
+        )}
       </NavLink>
     </>
   );
@@ -35,6 +39,7 @@ const Navbar = () => {
         </div>
         <div className="flex-none hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
+            <li>{user && <a href="/dashboard">Dashboard</a>}</li>
             <li>
               <a href="#services">Services</a>
             </li>
@@ -53,11 +58,11 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex-none gap-2">
-          <span className='flex gap-3'>
+          <span className="flex gap-3">
             <NavLink to="be-a-rider" className="btn btn-secondary rounded-4xl">
-            Be a Rider
-          </NavLink>
-          {user ? logout : login}
+              Be a Rider
+            </NavLink>
+            {user ? logout : login}
           </span>
           <div className="dropdown dropdown-end lg:hidden">
             <label tabIndex="0" className="btn btn-ghost btn-circle">

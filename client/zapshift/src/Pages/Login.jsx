@@ -20,7 +20,7 @@ const Login = () => {
     signInUser(data.email, data.password)
       .then((result) => {
         console.log(result.user);
-        navigate(location.state || '/');
+        navigate(location.state || '/dashboard');
         toast.success("Login Successful!");
       })
       .catch((error) => {

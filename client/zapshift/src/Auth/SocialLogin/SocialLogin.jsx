@@ -13,7 +13,7 @@ const SocialLogin = () => {
     signInGoogle()
       .then(result=>{
         console.log(result.user);
-        navigate(location?.state || '/')
+        navigate(location?.state || '/dashboard')
         toast.success('Login Success!')
       })
       .catch(error => {

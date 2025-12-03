@@ -31,7 +31,6 @@ const Register = () => {
         axios.post(imageAPIURL, formData)
           .then(res => {
             console.log('after image upload', res.data.data.url);
-            toast.success('Registration Successful!')
             const userProfile = {
               displayName : data.name,
               photoURL : res.data.data.url
@@ -39,13 +38,13 @@ const Register = () => {
             updateUserProfile (userProfile)
               .then(()=> {
                 console.log('Profile Ready!');
+                console.log(userProfile.photoURL);
+                
                 logOut();
               })
           })
-
-        
-      })
-      .catch(error => {
+        })
+        .catch(error => {
         console.log(error);
         toast.error(error);
       })
