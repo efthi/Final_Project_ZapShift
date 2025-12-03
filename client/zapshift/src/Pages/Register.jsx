@@ -14,7 +14,7 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
-  const {createUser, updateProfile} = useAuth();
+  const {createUser, updateUserProfile, logOut} = useAuth();
 
   const handleRegister = (data) => {
     console.log(data.profilepic[0]);
@@ -31,19 +31,19 @@ const Register = () => {
         axios.post(imageAPIURL, formData)
           .then(res => {
             console.log('after image upload', res.data.data.url);
-
+            toast.success('Registration Successful!')
             const userProfile = {
               displayName : data.name,
               photoURL : res.data.data.url
             }
-            updateProfile (userProfile)
+            updateUserProfile (userProfile)
               .then(()=> {
                 console.log('Profile Ready!');
-                
+                logOut();
               })
           })
 
-        toast.success('Registration Successful!')
+        
       })
       .catch(error => {
         console.log(error);

@@ -1,15 +1,19 @@
 import React from "react";
 import useAuth from "../../hooks/useAuth";
 import { toast, ToastContainer } from "react-toastify";
+import { useLocation, useNavigate } from "react-router";
 
 const SocialLogin = () => {
 
+  const location = useLocation();
+  const navigate =useNavigate();
   const {signInGoogle} = useAuth();
   
-  const hnadleGoogleSignIn = () =>{
+  const handleGoogleSignIn = () =>{
     signInGoogle()
       .then(result=>{
         console.log(result.user);
+        navigate(location?.state || '/')
         toast.success('Login Success!')
       })
       .catch(error => {
@@ -21,7 +25,7 @@ const SocialLogin = () => {
   return (
     <>
       {/* Google */}
-      <button onClick={signInGoogle} className="btn bg-white text-black border-[#e5e5e5]">
+      <button onClick={handleGoogleSignIn} className="btn bg-white text-black border-[#e5e5e5]">
         <svg
           aria-label="Google logo"
           width="16"

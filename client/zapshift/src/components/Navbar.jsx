@@ -3,14 +3,14 @@ import { NavLink } from "react-router";
 import useAuth from "../hooks/useAuth";
 
 const Navbar = () => {
-  const { user, logOut } = useAuth();
+  const { user, auLoading, logOut } = useAuth();
   const handleLogout = () => {
     logOut();
   };
   const login = (
     <>
       <NavLink to="/login" className="btn btn-success">
-        Sign In
+       {auLoading ? <span className="loading loading-spinner"></span> : ' Sign In'}
       </NavLink>
     </>
   );
